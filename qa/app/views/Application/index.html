@@ -1,0 +1,58 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+#{if frontPost}
+    <div class="question">
+       
+        <div class="question-metadata">
+            <span class="post-author">by ${frontPost.owner.fullname}</span>
+            <span class="post-date">${frontPost.timestamp}</span>
+            <span class="post-comments">
+                &nbsp;|&nbsp; 
+                ${frontPost.answers.size() ?: 'no'} 
+                answer${frontPost.answers.size().pluralize()}</a>
+                #{if frontPost.answers}
+                    , latest by ${frontPost.answers[0].owner.fullname}
+                #{/if}
+            </span>
+        </div>
+        <div class="post-content">
+            ${frontPost.content.nl2br()}
+        </div>
+    </div>
+    
+    #{if olderPosts.size() >= 1}
+        <div class="older-posts">    
+            <h3>Older posts <span class="from">from this blog</span></h3>
+        
+            #{list items:olderPosts, as:'oldPost'}
+                <div class="post">
+                   
+                    <div class="post-metadata">
+                        <span class="post-author">
+                            by ${oldPost.owner.fullname}
+                        </span>
+                        <span class="post-date">
+                            ${oldPost.timestamp}
+                        </span>
+                        <div class="post-comments">
+                            ${oldPost.answers.size() ?: 'no'} 
+                            answer${oldPost.answers.size().pluralize()}
+                            #{if oldPost.answers}
+                                - latest by ${oldPost.answers[0].owner.fullname}
+                            #{/if}
+                        </div>
+                    </div>
+                </div>
+            #{/list}
+        </div>
+        
+    #{/if}
+    
+#{/if}
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

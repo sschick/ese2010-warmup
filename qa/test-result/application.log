@@ -1,0 +1,32 @@
+05 Oct 2010 20:03:06,997 INFO  ~ Starting /home/simon/ese/play-1.0.3.2/qa
+05 Oct 2010 20:03:07,844 INFO  ~ 
+05 Oct 2010 20:03:07,844 INFO  ~ Go to http://localhost:9000/@tests to run the tests
+05 Oct 2010 20:03:07,844 INFO  ~ 
+05 Oct 2010 20:03:07,844 WARN  ~ You're running Play! in DEV mode
+05 Oct 2010 20:03:07,996 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+05 Oct 2010 20:03:27,337 INFO  ~ Connected to jdbc:hsqldb:mem:playembed
+05 Oct 2010 20:03:28,199 INFO  ~ Application 'qa' is now started !
+05 Oct 2010 20:06:08,090 ERROR ~ 
+
+@643o0opap
+Internal Server Error (500) for request GET /
+
+Template execution error (In /app/views/Application/index.html around line 20)
+Execution error occured in template /app/views/Application/index.html. Exception raised was MissingPropertyException : No such property: contenthg for class: models.Question Possible solutions: content.
+
+play.exceptions.TemplateExecutionException: No such property: contenthg for class: models.Question
+Possible solutions: content
+	at play.templates.Template.throwException(Template.java:296)
+	at play.templates.Template.render(Template.java:261)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:22)
+	at play.mvc.Controller.renderTemplate(Controller.java:489)
+	at play.mvc.Controller.render(Controller.java:521)
+	at controllers.Application.index(Application.java:13)
+	at play.utils.Java.invokeStatic(Java.java:129)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:139)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingPropertyException: No such property: contenthg for class: models.Question
+Possible solutions: content
+	at /app/views/Application/index.html.(line:20)
+	at play.templates.Template.render(Template.java:238)
+	... 7 more
